@@ -24,7 +24,7 @@ function run(prog, inp) {
     if (steps >= 1000000) return end(10);
     if (pc < 0 || pc >= n) return end(9);
     const op = prog[pc];
-    const ok = op < 8 || (op >= 16 && op <= 34) || (op >= 48 && op <= 52) || op === 64 || op === 65 || (op >= 80 && op <= 83);
+    const ok = op !== 31 && (op < 8 || (op >= 16 && op <= 34) || (op >= 48 && op <= 52) || op === 64 || op === 65 || (op >= 80 && op <= 83));
     if (!ok) return end(5);
     const imm = IM[op];
     if (imm > 0 && pc + imm >= n) return end(9);
